@@ -98,7 +98,7 @@ const App = () => {
 				<h2>Guest Book</h2>
 				{currentUser
 					? <button onClick={signOut}>Log out</button>
-					: <button onClick={signIn}>Log in</button>
+					: selector && <button onClick={signIn}>Log in</button>
 				}
 			</header>
 			{currentUser
