@@ -3769,15 +3769,10 @@ camelcase@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-6.0.0.tgz"
 
-caniuse-lite@^1.0.30001280:
-  version "1.0.30001334"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001334.tgz"
-  integrity sha512-kbaCEBRRVSoeNs74sCuq92MJyGrMtjWVfhltoHUCW4t4pXFvGjUBrfo47weBRViHkiV3eBYyIsfl956NtHGazw==
-
-caniuse-lite@^1.0.30001332:
-  version "1.0.30001335"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001335.tgz#899254a0b70579e5a957c32dced79f0727c61f2a"
-  integrity sha512-ddP1Tgm7z2iIxu6QTtbZUv6HJxSaV/PZeSrWFZtbY4JZ69tOeNhBCl3HyRQgeNZKE5AOn1kpV7fhljigy0Ty3w==
+caniuse-lite@^1.0.30001280, caniuse-lite@^1.0.30001332:
+  version "1.0.30001426"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001426.tgz"
+  integrity sha512-n7cosrHLl8AWt0wwZw/PJZgUg3lV0gk9LMI7ikGJwhyhgsd2Nb65vKvmSexCqq/J7rbH3mFG6yZZiPR5dLPW5A==
 
 capability@^0.2.5:
   version "0.2.5"
@@ -7079,10 +7074,10 @@ nearley@^2.20.1:
     railroad-diagrams "^1.0.0"
     randexp "0.4.6"
 
-neth@^0.5.13:
-  version "0.5.13"
-  resolved "https://registry.yarnpkg.com/neth/-/neth-0.5.13.tgz#4c0fa21f85dfa72e0567e325011154a1bc5ff70e"
-  integrity sha512-AhgXj6+ZwlSMjQKREahiQDXPvr+WUpVXqSoEip1m/F7944EvcMGfxOfEhXga6Ech2JU8wVwBa1RW9w+KmP4Pyw==
+neth@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/neth/-/neth-7.1.1.tgz#b6d63e79f3df9e9c443012c965e273eecdf4ccfd"
+  integrity sha512-KUAJigkjCOJQquguj1ci2j86AIXK2ZyNO3LyvUTNXQ0gPa8sed6/O146myATCnmdrkhkx8J3jFSqmABc8z47Rw==
   dependencies:
     "@near-wallet-selector/core" "^7.1.0"
     ava "^4.3.3"

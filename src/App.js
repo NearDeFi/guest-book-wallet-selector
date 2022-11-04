@@ -13,6 +13,8 @@ const { networkId, contractName } = config
 const SUGGESTED_DONATION = '0';
 const BOATLOAD_OF_GAS = Big(3).times(10 ** 13).toFixed();
 
+const test = Date.now()
+
 const App = () => {
 	const selectorRef = useRef();
 	const [selector, setSelector] = useState(null);
