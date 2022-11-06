@@ -62,7 +62,9 @@ const App = () => {
 		const { fieldset, message, donation, multiple } = e.target.elements;
 		fieldset.disabled = true;
 
-		if (multiple) {
+		console.log(multiple.checked)
+
+		if (multiple.checked) {
 			const transactions = [];
 
 			for (let i = 0; i < 2; i += 1) {
