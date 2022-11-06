@@ -7074,10 +7074,10 @@ nearley@^2.20.1:
     railroad-diagrams "^1.0.0"
     randexp "0.4.6"
 
-neth@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/neth/-/neth-7.1.1.tgz#b6d63e79f3df9e9c443012c965e273eecdf4ccfd"
-  integrity sha512-KUAJigkjCOJQquguj1ci2j86AIXK2ZyNO3LyvUTNXQ0gPa8sed6/O146myATCnmdrkhkx8J3jFSqmABc8z47Rw==
+neth@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/neth/-/neth-7.1.2.tgz#51da6c68e4eb1b7f3e0bfd9cbc77788bcf335429"
+  integrity sha512-tyzjQeLfrwB0peI1PY5JqTUw0m/gHL0dAc4C2oCxXTISr2RVbst0Rvj/hFwDJzgWVVSelc9fq1eDjF4sebOGQQ==
   dependencies:
     "@near-wallet-selector/core" "^7.1.0"
     ava "^4.3.3"

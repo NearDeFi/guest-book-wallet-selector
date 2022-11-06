@@ -7,6 +7,13 @@ import Messages from './components/Messages';
 import getConfig from './config.js';
 import { getSelector, getAccount, viewFunction, functionCall } from './utils/wallet-selector/wallet-selector-compat.ts';
 
+import * as nearAPI from 'near-api-js'
+const {
+	Transaction,
+	utils: { format: {
+		parseNearAmount
+	}}
+} = nearAPI
 const networkIdUrlParam = window.location.search.split('?network=')[1]
 const config = getConfig(networkIdUrlParam || 'mainnet');
 const { networkId, contractName } = config
@@ -52,22 +59,52 @@ const App = () => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 
-		const { fieldset, message, donation } = e.target.elements;
+		const { fieldset, message, donation, multiple } = e.target.elements;
 		fieldset.disabled = true;
+
+		if (multiple) {
+			const transactions = [];
+
+			for (let i = 0; i < 2; i += 1) {
+				transactions.push({
+					receiverId: contractName,
+					actions: [
+						{
+							type: "FunctionCall",
+							params: {
+								methodName: "addMessage",
+								args: {
+									text: `${message.value} (${i + 1}/2)`,
+								},
+								gas: BOATLOAD_OF_GAS,
+								deposit: parseNearAmount(donation.value),
+							},
+						},
+					],
+				});
+			}
+
+			const wallet = await selector.wallet();
+			return wallet.signAndSendTransactions({ transactions }).catch((err) => {
+				alert("Failed to add messages exception " + err);
+				console.log("Failed to add messages");
+				throw err;
+			});
+		}
 
 		const res = await functionCall({
 			contractId: contractName,
 			methodName: 'addMessage',
 			args: { text: message.value },
 			gas: BOATLOAD_OF_GAS,
-			attachedDeposit: Big(donation.value || '0').times(10 ** 24).toFixed()
+			attachedDeposit: parseNearAmount(donation.value)
 		})
 		// would be redirect for NEAR Wallet IF donation > 0
 		console.log(res)
-        message.value = '';
-        donation.value = SUGGESTED_DONATION;
-        fieldset.disabled = false;
-        message.focus();
+		message.value = '';
+		donation.value = SUGGESTED_DONATION;
+		fieldset.disabled = false;
+		message.focus();
 		setMessages(await viewFunction({
 			contractId: contractName,
 			methodName: 'getMessages',
@@ -90,7 +127,7 @@ const App = () => {
 				<h2>NETH Support - Network: {networkId}</h2>
 				<p>Switch to <a
 					href={networkId === 'mainnet' ? window.location.href + '?network=testnet' : window.location.href.split('?')[0]}
-					onClick={() => localStorage.clear()}	
+					onClick={() => localStorage.clear()}
 				>
 					{networkId === 'mainnet' ? 'testnet' : 'mainnet'} by clicking here
 				</a>.</p>

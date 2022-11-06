@@ -29,6 +29,10 @@ export default function Form({ onSubmit, currentUser }) {
           />
           <span title="NEAR Tokens">Ⓝ (min 0.0001)</span>
         </p>
+        <p>
+          <label htmlFor="multiple">Multiple Transactions:</label>
+          <input id="multiple" type="checkbox" />
+        </p>
         <button type="submit">
           Sign
         </button>
